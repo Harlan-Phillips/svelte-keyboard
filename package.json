@@ -32,8 +32,11 @@
 		"typescript": "^4.5.5"
 	},
 	"exports": {
-		".": "./Keyboard.svelte"
+		".": {
+			"svelte": "./src/lib/Keyboard.svelte",
+			"default": "./src/lib/Keyboard.svelte"
+		}
 	},
-	"type": "module",
-	"typings": "./Keyboard.svelte.d.ts"
+	"svelte": "./src/lib/Keyboard.svelte",
+	"type": "module"
 }
