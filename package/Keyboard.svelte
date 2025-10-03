@@ -146,10 +146,9 @@
     position: absolute;
     right: 0;
     top: 0;
-    height: calc(200% + var(--margin, 0.125rem) * 4);
+    height: calc(200% + 0.8rem);
     z-index: 10;
-    flex: 0 0 auto;
-    width: calc(var(--height, 3.5rem) + var(--margin, 0.125rem) * 2);
+    width: calc((100% - 3 * 0.8rem) / 4);
   }
 
   button {
