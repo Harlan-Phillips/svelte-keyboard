@@ -32,7 +32,10 @@
 		"typescript": "^4.5.5"
 	},
 	"exports": {
-		".": "./package/Keyboard.svelte",
+		".": {
+			"svelte": "./package/Keyboard.svelte",
+			"default": "./package/Keyboard.svelte"
+		},
 		"./package.json": "./package.json"
 	},
 	"svelte": "./package/Keyboard.svelte",
