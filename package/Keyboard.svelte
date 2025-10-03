@@ -1,16 +1,16 @@
 <script>
   import { createEventDispatcher } from "svelte";
 
-  import qwertyStandard from "$lib/layouts/qwerty/standard.js";
-  import qwertyCrossword from "$lib/layouts/qwerty/crossword.js";
-  import qwertyWordle from "$lib/layouts/qwerty/wordle.js";
+  import qwertyStandard from "./layouts/qwerty/standard.js";
+  import qwertyCrossword from "./layouts/qwerty/crossword.js";
+  import qwertyWordle from "./layouts/qwerty/wordle.js";
 
-  import azertyStandard from "$lib/layouts/azerty/standard.js";
-  import azertyCrossword from "$lib/layouts/azerty/crossword.js";
-  import azertyWordle from "$lib/layouts/azerty/wordle.js";
+  import azertyStandard from "./layouts/azerty/standard.js";
+  import azertyCrossword from "./layouts/azerty/crossword.js";
+  import azertyWordle from "./layouts/azerty/wordle.js";
 
-  import backspaceSVG from "$lib/svg/backspace.js";
-  import enterSVG from "$lib/svg/enter.js";
+  import backspaceSVG from "./svg/backspace.js";
+  import enterSVG from "./svg/enter.js";
 
   // exposed props
   export let custom;
