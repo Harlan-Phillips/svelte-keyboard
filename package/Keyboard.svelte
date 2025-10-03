@@ -148,6 +148,8 @@
     top: 0;
     height: calc(200% + var(--margin, 0.125rem) * 4);
     z-index: 10;
+    flex: 0 0 auto;
+    width: calc(var(--height, 3.5rem) + var(--margin, 0.125rem) * 2);
   }
 
   button {
