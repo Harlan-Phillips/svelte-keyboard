@@ -143,12 +143,8 @@
   }
 
   button.double-height {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: calc(200% + 0.8rem);
-    z-index: 10;
-    width: calc((100% - 3 * 0.8rem) / 4);
+    grid-row: span 2;
+    height: auto;
   }
 
   button {
