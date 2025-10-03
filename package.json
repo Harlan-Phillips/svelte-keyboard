@@ -33,10 +33,12 @@
 	},
 	"exports": {
 		".": {
-			"svelte": "./src/lib/Keyboard.svelte",
-			"default": "./src/lib/Keyboard.svelte"
-		}
+			"svelte": "./package/Keyboard.svelte",
+			"default": "./package/Keyboard.svelte"
+		},
+		"./package.json": "./package/package.json"
 	},
-	"svelte": "./src/lib/Keyboard.svelte",
+	"svelte": "./package/Keyboard.svelte",
+	"main": "./package/Keyboard.svelte",
 	"type": "module"
 }

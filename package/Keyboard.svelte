@@ -1,16 +1,16 @@
 <script>
   import { createEventDispatcher } from "svelte";
 
-  import qwertyStandard from "./layouts/qwerty/standard.js";
-  import qwertyCrossword from "./layouts/qwerty/crossword.js";
-  import qwertyWordle from "./layouts/qwerty/wordle.js";
+  import qwertyStandard from "$lib/layouts/qwerty/standard.js";
+  import qwertyCrossword from "$lib/layouts/qwerty/crossword.js";
+  import qwertyWordle from "$lib/layouts/qwerty/wordle.js";
 
-  import azertyStandard from "./layouts/azerty/standard.js";
-  import azertyCrossword from "./layouts/azerty/crossword.js";
-  import azertyWordle from "./layouts/azerty/wordle.js";
+  import azertyStandard from "$lib/layouts/azerty/standard.js";
+  import azertyCrossword from "$lib/layouts/azerty/crossword.js";
+  import azertyWordle from "$lib/layouts/azerty/wordle.js";
 
-  import backspaceSVG from "./svg/backspace.js";
-  import enterSVG from "./svg/enter.js";
+  import backspaceSVG from "$lib/svg/backspace.js";
+  import enterSVG from "$lib/svg/enter.js";
 
   // exposed props
   export let custom;
@@ -84,6 +84,8 @@
     return {
       ...d,
       display,
+      height: d.height || 1,
+      width: d.width || 1,
     };
   });
 
@@ -106,12 +108,16 @@
     <div class="page" class:visible="{i === page}">
       {#each row as keys}
         <div class="row row--{i}">
-          {#each keys as { value, display }}
+          {#each keys as { value, display, height, width }}
             <button
               type="button"
               class="key key--{value} {keyClass[value] || ''}"
               class:single="{value.length === 1}"
               class:active="{value === active}"
+              class:double-height="{height === 2}"
+              data-key="{value}"
+              data-height="{height || 1}"
+              data-width="{width || 1}"
               on:touchstart="{(e) => onKeyStart(e, value)}"
               on:mousedown="{(e) => onKeyStart(e, value)}"
               on:touchend="{() => onKeyEnd(value)}"
@@ -133,6 +139,15 @@
     display: flex;
     justify-content: center;
     touch-action: manipulation;
+    position: relative;
+  }
+
+  button.double-height {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: calc(200% + var(--margin, 0.125rem) * 4);
+    z-index: 10;
   }
 
   button {
