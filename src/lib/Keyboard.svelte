@@ -84,6 +84,8 @@
     return {
       ...d,
       display,
+      height: d.height || 1,
+      width: d.width || 1,
     };
   });
 
@@ -106,12 +108,16 @@
     <div class="page" class:visible="{i === page}">
       {#each row as keys}
         <div class="row row--{i}">
-          {#each keys as { value, display }}
+          {#each keys as { value, display, height, width }}
             <button
               type="button"
               class="key key--{value} {keyClass[value] || ''}"
               class:single="{value.length === 1}"
               class:active="{value === active}"
+              class:double-height="{height === 2}"
+              data-key="{value}"
+              data-height="{height || 1}"
+              data-width="{width || 1}"
               on:touchstart="{(e) => onKeyStart(e, value)}"
               on:mousedown="{(e) => onKeyStart(e, value)}"
               on:touchend="{() => onKeyEnd(value)}"
@@ -133,6 +139,15 @@
     display: flex;
     justify-content: center;
     touch-action: manipulation;
+    position: relative;
+  }
+
+  button.double-height {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: calc(200% + var(--margin, 0.125rem) * 4);
+    z-index: 10;
   }
 
   button {
